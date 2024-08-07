@@ -1,0 +1,13 @@
+[Unit]
+Description=Simple Python System Service for Logging file changes
+
+[Service]
+WorkingDirectory=/usr/local/lib/mylogservice/
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=/usr/local/etc/mylogservice/mylogservice.env
+ExecStart=/usr/local/lib/mylogservice/mylogenv/bin/python3 /usr/local/lib/mylogservice/mylogservice.py
+
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
